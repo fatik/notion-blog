@@ -1,0 +1,40 @@
+
+name: Sync Notion to GitHub Pages
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # Run every 6 hours
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          
+      - name: Install dependencies
+        run: npm install @notionhq/client
+        
+      - name: Debug environment
+        run: |
+          echo "Checking environment variables (masked for security)"
+          echo "NOTION_API_KEY exists: ${{ secrets.NOTION_API_KEY != '' }}"
+          echo "NOTION_DATABASE_ID exists: ${{ secrets.NOTION_DATABASE_ID != '' }}"
+          
+      - name: Fetch from Notion and build site
+        run: node .github/scripts/build-site.js
+        env:
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+          
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: _site
