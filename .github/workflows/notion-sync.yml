@@ -1,4 +1,3 @@
-
 name: Sync Notion to GitHub Pages
 
 on:
@@ -6,11 +5,14 @@ on:
     - cron: '0 */6 * * *'  # Run every 6 hours
   workflow_dispatch:  # Allow manual trigger
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@v3
       
@@ -20,7 +22,7 @@ jobs:
           node-version: '16'
           
       - name: Install dependencies
-        run: npm install @notionhq/client
+        run: npm install @notionhq/client dotenv
         
       - name: Debug environment
         run: |
@@ -38,3 +40,8 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: _site
+          branch: main
+          target-folder: .
+          clean: true
+          commit-message: "Deploy site update from Notion [skip ci]"
+          single-commit: true
