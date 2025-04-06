@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Posts data from Notion
 const posts = [
   {
-    "title": "gen debt",
+    "title": "In Between Generations",
     "slug": "gen-debt",
     "date": "April 6, 2025",
     "excerpt": "No excerpt available for this post."
