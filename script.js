@@ -1,8 +1,9 @@
 
+// This script will be updated by the GitHub Actions workflow
+// with real data from your Notion database
+
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOM loaded, found 2 posts");
-    
-    // Display the posts
+    // Display the posts that are populated by the GitHub Actions workflow
     const postsContainer = document.getElementById("posts");
     
     if (posts.length === 0) {
@@ -22,18 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
     postsContainer.innerHTML = postsHtml;
 });
 
-// Posts data from Notion
-const posts = [
-  {
-    "title": "gen debt",
-    "slug": "gen-debt",
-    "date": "April 6, 2025",
-    "excerpt": "No excerpt available for this post."
-  },
-  {
-    "title": "todo modo",
-    "slug": "yo",
-    "date": "April 4, 2025",
-    "excerpt": "No excerpt available for this post."
-  }
-];
+// This posts array will be replaced with actual data from Notion
+// by the GitHub Actions workflow
+const posts = [];
