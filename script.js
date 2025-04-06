@@ -14,8 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
         <article>
             <h2><a href="posts/${post.slug}.html">${post.title}</a></h2>
             <div class="date">${post.date}</div>
-            <div class="excerpt">${post.excerpt}</div>
-            <a href="posts/${post.slug}.html" class="read-more">Read more</a>
         </article>
     `).join("");
     
