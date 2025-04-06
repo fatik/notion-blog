@@ -186,12 +186,12 @@ async function buildSite() {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${title} | My Notion Blog</title>
+    <title>${title} Musings</title>
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
     <header>
-        <h1><a href="../index.html" style="text-decoration: none; color: inherit;">My Notion Blog</a></h1>
+        <h1><a href="../index.html" style="text-decoration: none; color: inherit;">Musings</a></h1>
     </header>
     <main class="post-content">
         <h1>${title}</h1>
@@ -260,12 +260,12 @@ const posts = ${JSON.stringify(postsData, null, 2)};`;
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>My Notion Blog</title>
+        <title>Musings</title>
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
         <header>
-            <h1>My Notion Blog</h1>
+            <h1>Musings</h1>
         </header>
         <main class="blog-list">
             <div id="posts">
