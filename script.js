@@ -1,6 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOM loaded, found 2 posts");
+    console.log("DOM loaded, found 3 posts");
     
     // Display the posts
     const postsContainer = document.getElementById("posts");
@@ -22,6 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Posts data from Notion
 const posts = [
+  {
+    "title": "torn apart",
+    "slug": "torn",
+    "date": "April 10, 2025",
+    "excerpt": "No excerpt available for this post."
+  },
   {
     "title": "In Between Generations",
     "slug": "gen-debt",
